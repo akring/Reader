@@ -1,0 +1,24 @@
+Pod::Spec.new do |s|
+
+  s.name         = "vfrReader"
+  s.version      = "1.0.0"
+  s.summary      = "Custom PDF Browser"
+
+  s.description  = <<-DESC
+                   vfrReader is a pdf browser.
+                   DESC
+
+  s.homepage     = "https://github.com/akring/Reader"
+  s.screenshots  = ""
+
+  s.license      = { :type => "MIT", :file => "LICENSE" }
+
+  s.ios.deployment_target = "6.0"
+
+  s.source       = { :git => "https://github.com/akring/Reader.git", :tag => s.version }
+  
+  s.source_files  = ["Reader/Sources/*.h","Reader/Sources/*.m", "TipAlert/TipAlert.h", "TipAlert/TipAlert.swift"]
+  s.public_header_files = ["Reader/Reader.h"]
+  
+  s.requires_arc = true
+end
