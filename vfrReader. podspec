@@ -17,7 +17,7 @@ Pod::Spec.new do |s|
 
   s.source       = { :git => "https://github.com/akring/Reader.git", :tag => s.version }
   
-  s.source_files  = ["Reader/Sources/*.h","Reader/Sources/*.m", "TipAlert/TipAlert.h", "TipAlert/TipAlert.swift"]
+  s.source_files  = ["Reader/Sources/*.h","Reader/Sources/*.m", "Resources/*.*"]
   s.public_header_files = ["Reader/Reader.h"]
   
   s.requires_arc = true
