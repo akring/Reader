@@ -61,10 +61,10 @@
 
 - (instancetype)initWithFrame:(CGRect)frame
 {
-	return [self initWithFrame:frame document:nil];
+	return [self initWithFrame:frame document:nil title:nil];
 }
 
-- (instancetype)initWithFrame:(CGRect)frame document:(ReaderDocument *)document
+- (instancetype)initWithFrame:(CGRect)frame document:(ReaderDocument *)document title:(NSString *)title
 {
 	assert(document != nil); // Must have a valid ReaderDocument
 
@@ -233,7 +233,11 @@
 			titleLabel.backgroundColor = [UIColor clearColor];
 			titleLabel.adjustsFontSizeToFitWidth = YES;
 			titleLabel.minimumScaleFactor = 0.75f;
-			titleLabel.text = [document.fileName stringByDeletingPathExtension];
+            if (title != nil) {//提供自定义标题
+                titleLabel.text = title;
+            }else{
+                titleLabel.text = [document.fileName stringByDeletingPathExtension];
+            }
 #if (READER_FLAT_UI == FALSE) // Option
 			titleLabel.shadowColor = [UIColor colorWithWhite:0.75f alpha:1.0f];
 			titleLabel.shadowOffset = CGSizeMake(0.0f, 1.0f);

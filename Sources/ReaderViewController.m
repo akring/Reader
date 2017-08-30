@@ -63,6 +63,8 @@
 	CGSize lastAppearSize;
 
 	NSDate *lastHideTime;
+    
+    NSString *viewTitle;
 
 	BOOL ignoreDidScroll;
 }
@@ -286,7 +288,7 @@
 
 #pragma mark - UIViewController methods
 
-- (instancetype)initWithReaderDocument:(ReaderDocument *)object
+- (instancetype)initWithReaderDocument:(ReaderDocument *)object title:(NSString *)title
 {
 	if ((self = [super initWithNibName:nil bundle:nil])) // Initialize superclass
 	{
@@ -305,6 +307,8 @@
 			[object updateDocumentProperties]; document = object; // Retain the supplied ReaderDocument object for our use
 
 			[ReaderThumbCache touchThumbCacheWithGUID:object.guid]; // Touch the document thumb cache directory
+            
+            viewTitle = title;
 		}
 		else // Invalid ReaderDocument object
 		{
@@ -355,7 +359,7 @@
 	[self.view addSubview:theScrollView];
 
 	CGRect toolbarRect = viewRect; toolbarRect.size.height = TOOLBAR_HEIGHT;
-	mainToolbar = [[ReaderMainToolbar alloc] initWithFrame:toolbarRect document:document]; // ReaderMainToolbar
+	mainToolbar = [[ReaderMainToolbar alloc] initWithFrame:toolbarRect document:document title:viewTitle]; // ReaderMainToolbar
 	mainToolbar.delegate = self; // ReaderMainToolbarDelegate
 	[self.view addSubview:mainToolbar];
 
