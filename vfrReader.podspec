@@ -14,7 +14,7 @@ Pod::Spec.new do |s|
   s.authors            = { "akring" => "ddflj3210@gmail.com" }
   s.social_media_url   = "http://twitter.com/ddflj3310"
 
-  s.license      = { :type => "MIT", :file => "LICENSE" }
+  # s.license      = { :type => "MIT", :file => "LICENSE" }
 
   s.ios.deployment_target = "6.0"
 
